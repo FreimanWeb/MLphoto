@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотобот</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="main">
+ <div class="headers">
+
+			<img src="https://www.deeptek.ru/wp-content/uploads/2024/05/logo.png" class="imgS logoimg" alt="team img">
+			<a href="#home" class="brand smoothScroll">DeepTek</a>
+    <img src="https://www.deeptek.ru/wp-content/uploads/2024/05/logo-1.png" class="imgS logoimg2" alt="team img">
+		</div>
+<div class="container">
+    <h1>Найденные фотографии:</h1>
+    {% if matches %}
+        <ul>
+            {% for match in matches %}
+                <li><img src="{{ url_for('static', filename='database_images/' + match) }}" alt="{{ match }}" width="200"></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Совпадений не найдено.</p>
+    {% endif %}
+    <a class="btn" href="{{ url_for('index') }}">Загрузить другое фото</a>
+</div>
+
+<div class="container">
+   © COPYRIGHT 2024 BY DEEPTEK SOLUTIONS | DEVELOPMENT AND DESIGN: DEEPTEK SOLUTIONS
+
+</div>
+
+</div>
+</body>
+</html>
